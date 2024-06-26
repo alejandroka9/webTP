@@ -1,0 +1,137 @@
+body{
+    /* para sacar el margen del encabezado */
+    margin: 0; 
+    background-color: white;
+     color: black; 
+}
+
+/* modo oscuro, claro */
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+  
+/* header */
+.logo img{
+    height: 80px;
+    width: 230px;
+}
+
+
+
+
+/* carousel */
+
+
+.carousel-item img{
+    height: 600px;
+    /* margin: 10px; */
+}
+
+
+/* barra del medio */
+
+/* fonts */
+@font-face{
+    font-family: mifuente;
+    src: url('fonts/TT\ Nooks\ Script\ Trial\ Black.otf')
+}
+
+
+.col {
+    font-family: mifuente;
+    padding: 50px;
+    background-color: grey;
+    /* background-color: hsla(39, 70%, 20%, 0.742); */
+    /* border-radius: 2%; */
+}
+
+.col h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 50px;
+    border-radius: 7%;
+}
+
+
+
+
+
+
+
+/* productos */
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+
+  .card {
+    background-color: hsla(0, 0%, 90%, 0.893);
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  .card img {
+    
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+  }
+  
+  .card h2 {
+    margin-top: 10px;
+    font-family: sans-serif;
+  }
+  .card p {
+    margin-top: 5px;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+/* menu */
+.nav-link-dropdown-toggle{
+    background-color: rgb(35, 173, 78);
+    margin-top: 10%;    
+    padding:10px;
+    position:relative;
+    right: 200px;
+    bottom: 20px;
+    border-radius: 15%;
+}
+
+/* carrito.html */
+
+.btn-btn-primary{
+    height: 50px;
+    width: 70px;
+    
+}
+
+.Carrito{
+    background-color: rgb(62, 133, 62);
+    width: 30%;
+    border-radius: 10%;
+    text-align: center;
+}
+
+.error{
+  color: red;
+}

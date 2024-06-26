@@ -1,0 +1,95 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+    Editar producto
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/stylee.css' %}" >
+<link rel="stylesheet" href="{% static 'css/Styleee.css' %}" >
+{% endblock %}
+
+
+
+{% block body %}
+
+<div class="container mb-5">
+    <h1>Editar productos</h1>
+    <form id="formEditarProducto" action="/editarprod" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-floating mb-6">
+                    <input onblur="validarFormulario()" value="{{prod.sku}}" type="text" class="form-control" id="txtSku" placeholder="SKU" >
+                    <label for="txtSku">SKU:</label>
+                    <small id="valsku">Ingrese sku del producto</small>
+                </div>
+            </div>
+            <p></p>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input onblur="validarFormulario()" value="{{prod.nombre}}" type="text" class="form-control" id="txtNombre" placeholder="Nombre" >
+                    <label for="txtNombre">Nombre:</label>
+                    <small id="valnombre">ingrese nombre del producto</small>
+                </div>
+            </div>
+            <p></p>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input onblur="validarFormulario()" value="{{prod.precio}}" type="number" class="form-control" id="txtValor" placeholder="Valor" >
+                    <label for="txtPrecio">Precio:</label>
+                    <small id="valvalor">ingrese precio </small>
+                </div>
+            </div>
+            <p></p>
+            <div class="col-md-6">
+                <label for="txtImagen">Imagen:</label>
+                <img src ="{{prod.imagen.url}}"  height ="100" alt ="">
+                <input name="txtImagen" id="txtImagen" class="form-control" type="file">
+            </div>
+            <p></p>
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input onblur="validarFormulario()" value="{{prod.descripcion}}" type="text" class="form-control" id="txtDescripcion" placeholder="Descripción" >
+                    <label for="txtDescripcion">Descripción:</label>
+                    <small id="valdescripcion">ingrese descripcion</small>
+                </div>
+            </div>
+            <p></p>
+            <div class="col-md-6">
+                <label for="txtStock">Stock:</label>
+                <input value="{{prod.stock}}"  name="txtStock" id="txtStock" class="form-control" type="text">
+                <small id="valStock">ingrese stock</small>
+            </div>
+            <p></p>
+            <div class="col-md-6">
+                <label for="txtSku">Categoria:</label>
+                <select name="cmbCategoria" id="cmbCategoria" class="form-select" aria-label="Default select example">
+                    <option disabled selected>Seleccione</option>
+                    {% for i in cate %}
+                    <option value="{{i.id_categoria}}" {% if i.id_categoria == prod.categoria_id.id_categoria %} selected  {% endif %}>{{i.nombre}}</option>
+                    {% endfor %}
+                  </select>
+            </div>
+        </div>
+        <a href="#">
+            <input type="reset" class="resetear" value="Borrar">
+        </a>
+            <button type="submit" class="guardar">Guardar</button>
+        
+    </form>
+    <a href="/principal">
+        <button type="submit" class="atras"> atras</button>
+    </a>
+</div>
+
+
+{% endblock %}
+
+
+{% block script %}
+<script src="{% static 'js/funciones2.js' %}"></script>
+<script src="{% static 'js/funciones.js'%}"></script>
+{% endblock %}

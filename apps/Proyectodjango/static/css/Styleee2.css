@@ -1,0 +1,12 @@
+body{
+    /* para sacar el margen del encabezado */
+    margin: 0; 
+    background-color: rgb(191, 191, 191);
+    font-family: mifuente;
+    color: black; 
+}
+
+@font-face{
+    font-family: mifuente;
+    src: url('fonts/TT\ Nooks\ Script\ Trial\ Black.otf')
+}

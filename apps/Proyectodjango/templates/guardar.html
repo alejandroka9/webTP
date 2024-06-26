@@ -1,0 +1,142 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+    Guardar producto
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/Styleee2.css' %}" >
+<link rel="stylesheet" href="{% static 'css/Styleee.css' %}" >
+{% endblock %}
+
+
+{% block body %}
+
+
+<div class="container mb-5">
+    <h1 class="Carrito">Agrega Productos</h1>
+     <form id="formAgregarproducto" action="/guardarprod" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        <div class="row">
+            <div class="col-md-3">
+                
+                    <label for="txtSku">SKU:</label>
+                    <input id="txtSku" name="txtSku" type="text" placeholder="Ingrese su rut" class="form-control">
+                                           
+            </div>
+            <div class="col-md-9">
+               
+                    <label for=" txtNombre">Nombre:</label>
+                    <input id=" txtNombre" name="txtNombre" type="text" placeholder="Ingrese su Nombre" class="form-control">
+                     
+            </div>
+            <div class="col-md-4">
+                
+                    <label for="txtPrecio">Precio:</label>
+                    <input id="txtPrecio" name="txtPrecio" type="text" placeholder="Ingrese valor" class="form-control">
+                     
+            </div>
+            <div class="col-md-8">
+                
+                    <label for="txtDescripcion">Descripción:</label>
+                    <input id="txtDescripcion" name="txtDescripcion" type="text" placeholder="Ingrese una Descripción" class="form-control">
+                   
+
+            </div>
+            <div class="col-md-6">
+                <label for="txtImagen">Imagen:</label>
+                <input name="txtImagen" id="txtImagen" class="form-control" type="file">
+            </div>
+            <div class="col-md-6">
+                <label for="txtStock">Stock:</label>
+                <input name="txtStock" id="txtStock" class="form-control" type="text">
+            </div>
+            <div class="col-md-6">
+                <label for="txtSku">Categoria:</label>
+                <select name="cmbCategoria" id="cmbCategoria" class="form-select" aria-label="Default select example">
+                    <option disabled selected>Seleccione</option>
+                    {% for i in cate %}
+                    <option value="{{i.id_categoria}}">{{i.nombre}}</option>
+                    {% endfor %}
+                  </select>
+            </div>
+        </div>
+        <button class="btn btn-success mt-3">Guardar</button>
+    </form>
+    <div>
+        <a href="/principal" class="btn btn-success">Atras</a>
+    </div>
+</div>
+   
+<div class="container mt-5">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col" style="background-color: green; width: 20%; color:white ;">SKU</th>
+                <th scope="col" style="background-color: green; width: 20%; color:white ;">Nombre</th>
+                <th scope="col" style="background-color: green; width: 20%; color:white ;">Imagen</th>
+                <th scope="col" style="background-color: green; width: 20%; color:white ;">Descripción</th>
+                <th scope="col" style="background-color: green; width: 20%; color:white ;">Precio</th>
+                <th scope="col" style="background-color: green; width: 20%; color:white ;">Categoria</th>
+                <th scope="col" style="background-color: green; width: 20%; color:white ;">Stock</th>
+                <th scope="col" style="background-color: green; width: 20%; color:white ;">Editar - Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in prod %}
+            <tr>
+                <th scope="row">{{ c.sku }}</th>
+                <td>{{ c.nombre }}</td>
+                <td><img src="{{c.imagen.url}}" height="50" alt=""></td>
+                <td>{{ c.descripcion }}</td>
+                <td>{{ c.precio }}</td>
+                <td>{{ c.categoria_id }}</td>
+                <td>{{ c.stock }}</td>
+                <td>
+                    <a href="/editar/{{ c.sku }}" class="btn btn-primary">Editar</a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminarModal{{ c.sku }}">
+                        Eliminar
+                    </button>
+        
+                    <!-- Modal -->
+                    <div class="modal fade" id="eliminarModal{{ c.sku }}" tabindex="-1" aria-labelledby="eliminarModalLabel{{ c.sku }}"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="eliminarModalLabel{{ c.sku }}">Eliminar producto</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Desea eliminar el producto: {{ c.nombre }}?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <a href="/eliminarProducto/{{ c.sku }}" class="btn btn-danger">Eliminar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>   
+    </table>
+</div>
+ 
+
+{% comment %} Producto {% endcomment %}
+
+            
+{% endblock %}
+
+
+
+{% block script %}
+<script src="{% static 'js/jquery.validate.min.js'%} "></script>
+<script src="{% static 'js/funciones3.js'%}"></script>
+<script src="{% static 'js/funciones.js'%}"></script>
+{% endblock %}
