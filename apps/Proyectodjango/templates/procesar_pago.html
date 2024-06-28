@@ -1,0 +1,137 @@
+{% extends "base.html" %} {% load static %} {% block title %} Pago {% endblock
+%} {% block body %}
+<div class="container mt-4 mb-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <div id="carrito" class="card-body">
+          <h5 class="card-title">Resumen de compra</h5>
+          <table id="lista-carrito2" class="table">
+            <thead>
+              <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>
+                  <a
+                    href="#"
+                    class="borrar-producto fas fa-times-circle"
+                    data-id="1"
+                  ></a>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Aquí se insertarán dinámicamente los productos -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Divisor para extender el footer -->
+<div style="height: 100px"></div>
+{% endblock %} {% block script %}
+<script
+  src="https://www.paypal.com/sdk/js?client-id=AXaZJryJT7nSvLlGOAhaXzoGZtewNKisc1AZTDftiE1jCMZy0xJsC-xGjvbCmTl4HhCpfIbWOj_aJZRc&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo"
+  data-sdk-integration-source="developer-studio"
+></script>
+<script src="{% static 'js/jquery-3.4.1.min.js'%}"></script>
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/sweetalert2.min.js'%}"></script>
+<script src="{% static 'js/carrito.js'%}"></script>
+<script src="{% static 'js/pedido2.js'%}"></script>
+<script src="{% static 'js/funciones.js'%}"></script>
+
+<script>
+  // Función para obtener los productos del Local Storage
+  function obtenerProductosLocalStorage() {
+    let productosLS;
+    // Comprobar si hay algo en LS
+    if (localStorage.getItem("productos") === null) {
+      productosLS = [];
+    } else {
+      productosLS = JSON.parse(localStorage.getItem("productos"));
+    }
+    return productosLS;
+  }
+
+  // Función para mostrar los productos en la tabla
+  function mostrarProductosEnTabla() {
+    let productos = obtenerProductosLocalStorage();
+    let tabla = document
+      .getElementById("lista-carrito2")
+      .querySelector("tbody");
+
+    
+    tabla.innerHTML = "";
+
+    
+    productos.forEach(function (producto) {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+                <td><img src="${producto.imagen}" width="100"></td>
+                <td>${producto.titulo}</td>
+                <td>${producto.precio.toLocaleString("es-CL", {
+                  style: "currency",
+                  currency: "CLP",
+                })}</td>
+                <td><a href="#" class="borrar-producto fas fa-times-circle" data-id="${
+                  producto.id
+                }"></a></td>
+            `;
+      tabla.appendChild(row);
+    });
+  }
+
+  // Llamar a la función para mostrar los productos al cargar la página
+  document.addEventListener("DOMContentLoaded", function () {
+    mostrarProductosEnTabla();
+  });
+
+  //código de integración con PayPal
+  paypal
+    .Buttons({
+      style: {
+        color: "blue",
+        shape: "pill",
+        label: "pay",
+      },
+      createOrder: function (data, actions) {
+        
+        let productosLS = obtenerProductosLocalStorage();
+        let primerProducto = productosLS[0]; 
+
+        
+        let total = primerProducto.precio;
+
+        return actions.order.create({
+          purchase_units: [
+            {
+              amount: {
+                value: total, 
+              },
+            },
+          ],
+        });
+      },
+      onCancel: function (data, actions) {
+        alert("Pago cancelado");
+        console.log(data);
+      },
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (details) {
+        alert("Pago Exitoso");
+          console.log(details);
+        });
+      },
+    })
+    .render(".card-body"); 
+</script>
+
+{% endblock %} {
+% block footer %}
+
+{% endblock %}

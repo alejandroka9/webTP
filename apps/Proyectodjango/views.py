@@ -120,4 +120,14 @@ def agregarUsuario(request):
 
 
 
+def cargarProyecto(request):
+    return render(request,"login.html")
+
+
+
+
+
+def cargarProyecto6(request):
+    return render(request,"procesar_pago.html")
+
 

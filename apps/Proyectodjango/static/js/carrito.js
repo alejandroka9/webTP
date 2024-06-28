@@ -71,7 +71,7 @@ class Carrito {
             productoID = producto.querySelector('a').getAttribute('data-id');
         }
         this.eliminarProductoLocalStorage(productoID);
-        this.calcularTotal();
+        
 
     }
 
@@ -104,6 +104,7 @@ class Carrito {
         //Comprobar si hay algo en LS
         if(localStorage.getItem('productos') === null){
             productoLS = [];
+            console.log(localStorage);
         }
         else {
             productoLS = JSON.parse(localStorage.getItem('productos'));
@@ -202,23 +203,7 @@ class Carrito {
     }
 
     //Calcular montos
-    calcularTotal(){
-        let productosLS;
-        let total = 0, igv = 0, subtotal = 0;
-        productosLS = this.obtenerProductosLocalStorage();
-        for(let i = 0; i < productosLS.length; i++){
-            let element = Number(productosLS[i].precio * productosLS[i].cantidad);
-            total = total + element;
-            
-        }
-        
-        igv = parseFloat(total * 0.18).toFixed(2);
-        subtotal = parseFloat(total-igv).toFixed(2);
-
-        document.getElementById('subtotal').innerHTML = "S/. " + subtotal;
-        document.getElementById('igv').innerHTML = "S/. " + igv;
-        document.getElementById('total').value = "S/. " + total.toFixed(2);
-    }
+    
 
     obtenerEvento(e) {
         e.preventDefault();

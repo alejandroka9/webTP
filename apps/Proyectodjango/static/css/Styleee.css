@@ -5,6 +5,14 @@ body{
      color: black; 
 }
 
+.mapa{
+  height: 300px;
+  margin: 0 10%;
+}
+
+
+
+
 /* modo oscuro, claro */
 .dark-mode {
     background-color: black;
@@ -39,21 +47,21 @@ body{
 
 
 .col {
-    font-family: mifuente;
-    padding: 50px;
-    background-color: grey;
-    /* background-color: hsla(39, 70%, 20%, 0.742); */
-    /* border-radius: 2%; */
+  font-family: mifuente;
+  padding: 50px;
+  background: transparent !important;
+  
+  /* background-color: hsla(39, 70%, 20%, 0.742); */
+  /* border-radius: 2%; */
 }
 
 .col h3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    color: white;
-    height: 50px;
-    border-radius: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: 50px;
+  border-radius: 7%;
 }
 
 
@@ -105,10 +113,9 @@ body{
 
 
 
-
 /* menu */
 .nav-link-dropdown-toggle{
-    background-color: rgb(35, 173, 78);
+    background-color: #e3b;
     margin-top: 10%;    
     padding:10px;
     position:relative;
@@ -126,10 +133,17 @@ body{
 }
 
 .Carrito{
-    background-color: rgb(62, 133, 62);
+    background-color: #91a;
     width: 30%;
-    border-radius: 10%;
+    border-radius: 5%;
     text-align: center;
+    margin-top: 5%;
+}
+
+.elbtn{
+  background-color: #91a;
+  margin-top: 2%;
+  border-color: #fff;
 }
 
 .error{

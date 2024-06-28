@@ -1,7 +1,7 @@
 :root{
-    --verde1:#268835;
-    --verde2:#17bb51;
-    --cafe1:#6f701a;
+    --verde1:#e3b;
+    --verde2:#e3b;
+    --cafe1:#e3b;
     --blanco:#fff;
     --fuente:'Quicksand', sans-serif;
 }
@@ -14,10 +14,13 @@ html{
 }
 
 body{
-    font-family: var(--fuente);
+    
     /* background-color: var(--verde2); */
-    background-image: url('/static/img/fondo_planta.jpg');
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/003/663/127/original/purple-light-particle-line-fall-background-loop-animation-free-video.jpg');
     display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     align-items: center;
     height: 100vh;
 }
@@ -29,7 +32,7 @@ body{
 }
 
 .imagen-formulario{
-    background-image: url('/static/img/bg.jpg');
+    background-image: url('https://static.vecteezy.com/system/resources/previews/002/075/548/non_2x/person-using-a-laptop-to-study-on-work-desk-free-photo.jpg');
     background-position: center center;
     background-size: cover;
     height: 200px;
@@ -68,8 +71,9 @@ body{
 }
 
 .formulario{
-    padding: 50px;
-    background-color: var(--verde1);
+    padding: 70px;
+    background-color: #91a;
+
 }
 .texto-formulario h2, .input label, .password-olvidada a, .texto-formulario p{
     color: var(--blanco);
@@ -79,19 +83,19 @@ body{
     text-align: center;
 }
 .texto-formulario p{
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
 }
 .input label{
     display: block;
     font-size: 22px;
-    font-weight: bold;
+    
     margin: 20px 0;
 }
 .password-olvidada a{
     display: inline-block;
     margin-top: 20px;
-    font-size: 22px;
+    font-size: 14px;
 }
 .input input{
     width: 100%;
@@ -113,3 +117,4 @@ body{
     cursor: pointer;
     background-color: var(--verde2);
 }
+

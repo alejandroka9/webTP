@@ -5,13 +5,17 @@
 }
 
 body {
-  background-image: url("https://media.istockphoto.com/id/1394532585/es/foto/fondo-de-pared-de-hoja-verde.jpg?b=1&s=170667a&w=0&k=20&c=CqkI1OFo7fJyVdFgCZ5PvP7QHYqll90c9zXDgBSdqAI=");
+  background-image: url("https://img.freepik.com/vector-gratis/fondo-hexagonal-purpura-degradado_23-2148965956.jpg");
+  display: flex;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .form-register {
   width: 400px;
   height: 600px;
-  background: #2c8a39;
+  background: #91a;
   padding: 30px;
   margin: auto;
   margin-top: 100px;
@@ -28,11 +32,11 @@ body {
 
 .controls {
   width: 100%;
-  background: #3bee44;
+  background: #fff;
   padding: 10px;
   border-radius: 4px;
   margin-bottom: 16px;
-  border: 1px solid #2dc51f;
+  border: 1px solid #fff;
   font-family: 'calibri';
   font-size: 18px;
   color: white;
@@ -57,7 +61,7 @@ body {
 
 .boton {
   width: 100%;
-  background: #9e8f18a8;
+  background: rgb(200, 70, 218);
   border: none;
   padding: 12px;
   color: white;
@@ -67,6 +71,6 @@ body {
 }
 
 .boton:hover{
-  background-color: #3bee44;
+  background-color: #e3b;
   
 }

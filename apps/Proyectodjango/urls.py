@@ -10,5 +10,7 @@ urlpatterns = [
     path('guardarprod',views.agregarProducto),
     path('principal',views.cargarProyecto5),
     path('eliminarProducto/<sku>',views.eliminarProducto),
-    path('guardaruser',views.agregarUsuario)
+     path('guardaruser',views.agregarUsuario),
+    path('login',views.cargarProyecto),
+    path('procesar_pago',views.cargarProyecto6)
 ]

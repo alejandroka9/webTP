@@ -1,5 +1,8 @@
 body{
-    background-image: url('../img/f55b8ca1e60e24e741dafef4f6c57c14.jpeg');
+    background-image: url('https://img.freepik.com/vector-gratis/fondo-hexagonal-purpura-degradado_23-2148965956.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1719446400&semt=ais_user');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
@@ -9,7 +12,7 @@ body h1{
 }
 
 .resetear{
-   background-color: rgb(112, 100, 16);
+   background-color: #e3b;
    width: 110px;
    height: 40px;
    border: none;
@@ -18,7 +21,7 @@ body h1{
 }
 
 .resetear:hover{
-    background-color: #3bee44;
+    background-color: #91a;
 
 }
 
@@ -26,7 +29,7 @@ body h1{
 
     position: relative;
     left: 5px;
-    background-color: rgb(112, 100, 16);
+    background-color: #e3b;
     width: 110px;
     height: 40px;
     border: none;
@@ -35,13 +38,13 @@ body h1{
 }
 
 .guardar:hover{
-    background-color: #3bee44;
+    background-color: #91a;
 
 }
 
 
 .atras{
-    background-color: rgb(112, 100, 16);
+    background-color: #e3b;
     width: 110px;
     height: 40px;
     border: none;
@@ -52,7 +55,7 @@ body h1{
 }
 
 .atras:hover{
-    background-color: #3bee44;
+    background-color: #91a;
 
 }
 
@@ -63,3 +66,8 @@ body h1{
     inline-size: auto;
  
  }
+
+
+.container{
+    margin-top: 2%;
+}

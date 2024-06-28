@@ -15,16 +15,16 @@
 <body>
 
         <!-- header -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div style=" background-color: rgb(0, 0, 0);" class="container-fluid">
-            <a class="logo" href="#"><img src="static/img/logo_largo.png" alt=""></a>
+        <nav style="padding: 0%; height: 80px;" class="navbar navbar-expand-lg bg-body-tertiary">
+            <div style=" background-color: #91a; margin-bottom: 0%;" class="container-fluid">
+            <a class="logo" href="../templates/principal.html"><img style="height: auto; width: 100px;" src="../static/mediatecnopc/logotecnopc.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- reloj -->
 
-            <svg style="color: rgb(129, 255, 129); margin-left: 6%; " xmlns="http://www.w3.org/2000/svg" width="40"
+            <svg style="color: #91a; margin-left: 6%; " xmlns="http://www.w3.org/2000/svg" width="40"
                 height="40 " fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
                 <path
                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
@@ -39,14 +39,14 @@
             <!-- search -->
             <form style="margin: 2%;" class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
+                <button style="border-color: #fff; color: #fff;" class="btn btn-aja" type="submit">Buscar</button>
             </form>
 
             <!-- Iniciar Sesion y Registrarse -->
             <div class="enlaces">
-                <a href="/login" class="nav-inicio"> <button type="button" class="btn btn-info">Iniciar Sesion</button> </a>
+                <a href="/login" class="nav-inicio"> <button style="color: #fff;" type="button" class="btn">Iniciar Sesion</button> </a>
 
-                <a href="/registro" class="nav-registrarse"> <button type="button" class="btn btn-danger">Registrarse</button>
+                <a href="/registro" class="nav-registrarse"> <button style="color: #fff;" type="button" class="btn">Registrarse</button>
                 </a>
             </div>
 
@@ -55,16 +55,19 @@
             <!-- menu -->
             <div style="margin-right: 5%;">
                 <div class="btn-group">
-                <button type="button" class="btn btn-outline-success">Menu</button>
-                <button style="background-color: white;" type="button"
-                    class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+                <button style="color: #fff; border-color: #fff;" type="button" class="btn btn-aja">Menu</button>
+                <button style="border-color: #fff;" type="button"
+                    class="btn btn-aja dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
                     aria-expanded="false">
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/guardar"> <button type="button"
-                        class="btn btn-outline-warning">Guardar Productos</button> </a></li>
-                    <li><a class="dropdown-item" href="#"> <button type="button"
-                        class="btn btn-outline-success">Ayuda</button>
+                        class="btn btn-aja">Guardar Productos</button> </a></li>
+                    <li><a class="dropdown-item" href="/procesar_pago"> <button type="button"
+                        class="btn btn-aja">Pago</button>
+                    </a></li>
+                    <li><a class="dropdown-item" href="/principal"> <button type="button"
+                        class="btn btn-aja">Inicio</button>
                     </a></li>
                     <li>
                     <hr class="dropdown-divider">
@@ -85,13 +88,15 @@
 
 
 
-        <footer>
-            <div class="container-fluid">
-            <div class="row p-5 bg-dark text-white">
-                <div class=" col-xs-12 col-md-6 col-lg-3">
-                <p class="h3"><img src="static/img/logo.png" style="width: 85%;" alt=""></p>
+        <footer style="padding-top: 0%;">
+            <div style="padding-top: 0%;" class="container-fluid">
+            <div style="background-color: #91a;" class="row p-5 text-white">
+                <div style="padding-top: 0%;" class=" col-xs-12 col-md-6 col-lg-3">
+                <p class="h3"><img src="../static/mediatecnopc/logotecnopc.png" style="height: auto; width: 150px; margin-top: 0%;" alt=""></p>
                 </div>
-                <div class=" col-xs-12 col-md-6 col-lg-3">
+
+
+                <div style="margin-top: 0%;" class=" col-xs-12 col-md-6 col-lg-3">
                 <p class="h5 mb-3">Contactos</p>
                 <div class="mb-2">
                     <a class="text-secondary text-decoration-none" href="#">Instagram</a>
@@ -103,7 +108,9 @@
                     <a class="text-secondary text-decoration-none" href="#">Whatsapp</a>
                 </div>
                 </div>
-                <div class=" col-xs-12 col-md-6 col-lg-3">
+
+
+                <div style="margin-top: 0%;" class=" col-xs-12 col-md-6 col-lg-3">
                 <p class="h5 mb-3">Links</p>
                 <div class="mb-2">
                     <a class="text-secondary text-decoration-none" href="#">Terminos y Condiciones</a>
@@ -126,6 +133,7 @@
                     </div>
                 </div>
                 </div>
+                
             </div>
             </div>
         </footer>
